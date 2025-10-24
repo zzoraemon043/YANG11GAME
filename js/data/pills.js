@@ -1,28 +1,28 @@
-// ====================================
-// 丹藥和丹方資料配置
-// ====================================
 
-// 丹藥品質等級
+
+
+
+
 const PILL_QUALITY = {
-    INFERIOR: 'inferior',    // 下品 (50%效果)
-    NORMAL: 'normal',        // 中品 (100%效果)
-    SUPERIOR: 'superior',    // 上品 (150%效果)
-    PERFECT: 'perfect'       // 極品 (200%效果)
+    INFERIOR: 'inferior',    
+    NORMAL: 'normal',        
+    SUPERIOR: 'superior',    
+    PERFECT: 'perfect'       
 };
 
-// 丹藥稀有度
+
 const PILL_RARITY = {
-    HUANG: 'huang',  // 黃階
-    XUAN: 'xuan',    // 玄階
-    DI: 'di',        // 地階
-    TIAN: 'tian'     // 天階
+    HUANG: 'huang',  
+    XUAN: 'xuan',    
+    DI: 'di',        
+    TIAN: 'tian'     
 };
 
-// 丹藥資料
+
 const PILLS_DATA = {
-    // ========================================
-    // 煉氣境丹藥（黃階）
-    // ========================================
+    
+    
+    
     "聚氣丹": {
         id: "qi_gathering_pill",
         name: "聚氣丹",
@@ -32,8 +32,8 @@ const PILLS_DATA = {
         
         effect: {
             type: "cultivation_boost",
-            value: 20,              // +20% 修為獲得
-            duration: 30 * 60       // 持續30分鐘（秒）
+            value: 20,              
+            duration: 30 * 60       
         },
         
         description: "最基礎的修煉輔助丹藥，能提升修煉效率。"
@@ -48,7 +48,7 @@ const PILLS_DATA = {
         
         effect: {
             type: "reduce_cooldown",
-            value: 30               // 減少30秒冷卻
+            value: 30               
         },
         
         description: "恢復類丹藥，能減少渡劫失敗的冷卻時間。"
@@ -63,15 +63,15 @@ const PILLS_DATA = {
         
         effect: {
             type: "cultivation_time",
-            value: -10              // 減少10%修煉時間
+            value: -10              
         },
         
         description: "能夠凝神靜氣，縮短修煉時間。"
     },
     
-    // ========================================
-    // 築基境丹藥（玄階）
-    // ========================================
+    
+    
+    
     "金髓丹": {
         id: "golden_marrow_pill",
         name: "金髓丹",
@@ -82,7 +82,7 @@ const PILLS_DATA = {
         effect: {
             type: "cultivation_boost",
             value: 50,
-            duration: 60 * 60       // 持續1小時
+            duration: 60 * 60       
         },
         
         description: "蘊含金屬靈氣的丹藥，大幅提升修煉效率。"
@@ -97,7 +97,7 @@ const PILLS_DATA = {
         
         effect: {
             type: "breakthrough_rate",
-            value: 5                // 渡劫成功率 +5%
+            value: 5                
         },
         
         description: "築基境專用，能增加突破成功率。"
@@ -119,9 +119,9 @@ const PILLS_DATA = {
         description: "火屬性丹藥，適合火系功法修煉者。"
     },
     
-    // ========================================
-    // 金丹境丹藥（地階）
-    // ========================================
+    
+    
+    
     "大還丹": {
         id: "great_return_pill",
         name: "大還丹",
@@ -132,7 +132,7 @@ const PILLS_DATA = {
         effect: {
             type: "cultivation_boost",
             value: 100,
-            duration: 120 * 60      // 持續2小時
+            duration: 120 * 60      
         },
         
         description: "傳說中的療傷聖藥，也能大幅提升修煉效率。"
@@ -162,15 +162,15 @@ const PILLS_DATA = {
         
         effect: {
             type: "instant_cultivation",
-            value: 10000            // 立即獲得10000修為
+            value: 10000            
         },
         
         description: "凝聚天地精華，能立即增加修為。"
     },
     
-    // ========================================
-    // 元嬰境及以上丹藥（天階）
-    // ========================================
+    
+    
+    
     "九轉金丹": {
         id: "nine_turn_golden_pill",
         name: "九轉金丹",
@@ -181,7 +181,7 @@ const PILLS_DATA = {
         effect: {
             type: "cultivation_boost",
             value: 200,
-            duration: 240 * 60      // 持續4小時
+            duration: 240 * 60      
         },
         
         description: "傳說中的仙丹，效果驚人。"
@@ -226,18 +226,18 @@ const PILLS_DATA = {
         
         effect: {
             type: "remove_cooldown",
-            value: 1                // 完全移除冷卻
+            value: 1                
         },
         
         description: "極品療傷丹藥，能立即移除渡劫失敗的冷卻時間。"
     }
 };
 
-// 丹方資料
+
 const RECIPES_DATA = {
-    // ========================================
-    // 煉氣境丹方（黃階）
-    // ========================================
+    
+    
+    
     "聚氣丹": {
         id: "qi_gathering_recipe",
         name: "聚氣丹丹方",
@@ -249,10 +249,10 @@ const RECIPES_DATA = {
             "白雲草": 1
         },
         
-        spiritStone: 50,          // 煉製消耗靈石
-        alchemyTime: 10 * 60,     // 煉製時間10分鐘（秒）
-        baseSuccessRate: 70,      // 基礎成功率70%
-        minLevel: 1,              // 需要煉丹房1級
+        spiritStone: 50,          
+        alchemyTime: 10 * 60,     
+        baseSuccessRate: 70,      
+        minLevel: 1,              
         
         description: "最基礎的丹方，成功率較高。"
     },
@@ -295,9 +295,9 @@ const RECIPES_DATA = {
         description: "輔助修煉的基礎丹方。"
     },
     
-    // ========================================
-    // 築基境丹方（玄階）
-    // ========================================
+    
+    
+    
     "金髓丹": {
         id: "golden_marrow_recipe",
         name: "金髓丹丹方",
@@ -356,9 +356,9 @@ const RECIPES_DATA = {
         description: "火屬性丹方，適合火修。"
     },
     
-    // ========================================
-    // 金丹境丹方（地階）
-    // ========================================
+    
+    
+    
     "大還丹": {
         id: "great_return_recipe",
         name: "大還丹丹方",
@@ -418,9 +418,9 @@ const RECIPES_DATA = {
         description: "能立即增加修為的珍貴丹方。"
     },
     
-    // ========================================
-    // 元嬰境及以上丹方（天階）
-    // ========================================
+    
+    
+    
     "九轉金丹": {
         id: "nine_turn_golden_recipe",
         name: "九轉金丹丹方",
@@ -502,30 +502,30 @@ const RECIPES_DATA = {
     }
 };
 
-// ====================================
-// 工具函數
-// ====================================
 
-// 獲取丹藥資料
+
+
+
+
 function getPillData(pillName) {
     return PILLS_DATA[pillName] || null;
 }
 
-// 獲取丹方資料
+
 function getRecipeData(recipeName) {
     return RECIPES_DATA[recipeName] || null;
 }
 
-// 計算丹藥實際效果（根據品質）
+
 function calculatePillEffect(pillName, quality) {
     const pill = getPillData(pillName);
     if (!pill) return null;
     
     const qualityMultipliers = {
-        'inferior': 0.5,   // 下品 50%
-        'normal': 1.0,     // 中品 100%
-        'superior': 1.5,   // 上品 150%
-        'perfect': 2.0     // 極品 200%
+        'inferior': 0.5,   
+        'normal': 1.0,     
+        'superior': 1.5,   
+        'perfect': 2.0     
     };
     
     const multiplier = qualityMultipliers[quality] || 1.0;
@@ -537,30 +537,30 @@ function calculatePillEffect(pillName, quality) {
     };
 }
 
-// 根據成功率隨機決定丹藥品質
+
 function determineAlchemyQuality(successRate) {
     const random = Math.random() * 100;
     
-    // 失敗
+    
     if (random > successRate) {
         return null;
     }
     
-    // 成功，決定品質
+    
     const qualityRandom = Math.random() * 100;
     
     if (qualityRandom < 5) {
-        return PILL_QUALITY.PERFECT;    // 5% 極品
+        return PILL_QUALITY.PERFECT;    
     } else if (qualityRandom < 20) {
-        return PILL_QUALITY.SUPERIOR;   // 15% 上品
+        return PILL_QUALITY.SUPERIOR;   
     } else if (qualityRandom < 60) {
-        return PILL_QUALITY.NORMAL;     // 40% 中品
+        return PILL_QUALITY.NORMAL;     
     } else {
-        return PILL_QUALITY.INFERIOR;   // 40% 下品
+        return PILL_QUALITY.INFERIOR;   
     }
 }
 
-// 獲取品質中文名稱
+
 function getPillQualityName(quality) {
     const qualityNames = {
         'inferior': '下品',
@@ -572,19 +572,19 @@ function getPillQualityName(quality) {
     return qualityNames[quality] || '未知';
 }
 
-// 獲取品質顏色類名
+
 function getPillQualityClass(quality) {
     const qualityColors = {
-        'inferior': 'quality-inferior',   // 灰色
-        'normal': 'quality-normal',       // 白色
-        'superior': 'quality-superior',   // 藍色
-        'perfect': 'quality-perfect'      // 金色
+        'inferior': 'quality-inferior',   
+        'normal': 'quality-normal',       
+        'superior': 'quality-superior',   
+        'perfect': 'quality-perfect'      
     };
     
     return qualityColors[quality] || 'quality-default';
 }
 
-// 獲取丹藥效果描述
+
 function getPillEffectDescription(pill, quality) {
     const effect = calculatePillEffect(pill.name, quality);
     if (!effect) return '無效果';
