@@ -485,7 +485,7 @@ button.ready {
     
     
     .cave-facilities {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 10px;
     }
     
@@ -951,7 +951,7 @@ body {
 
 @media (max-width: 768px) {
     .cave-facilities {
-        grid-template-columns: repeat(3, 1fr);  
+        grid-template-columns: repeat(4, 1fr);  
         gap: 5px;
         justify-content: center;
         max-width: 95%;
@@ -974,7 +974,7 @@ body {
 
 @media (max-width: 480px) {
     .cave-facilities {
-        grid-template-columns: repeat(3, 1fr);  
+        grid-template-columns: repeat(4, 1fr);  
     }
     
     .facility-btn .icon {
