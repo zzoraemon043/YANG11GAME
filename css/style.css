@@ -951,24 +951,19 @@ body {
 
 @media (max-width: 768px) {
     .cave-facilities {
-        grid-template-columns: repeat(4, 1fr);  
-        gap: 5px;
-        justify-content: center;
-        max-width: 95%;
+        grid-template-columns: repeat(3, minmax(80px, 1fr)); /* 三個一排 */
+        gap: 4px;                 /* 間距縮小 */
+        justify-content: center;  /* 水平置中 */
         margin: 10px auto;
+        max-width: 95%;
     }
-    
+
     .facility-btn {
-        font-size: 0.85em;
-        padding: 8px 4px;
-    }
-    
-    .facility-btn .icon {
-        font-size: 2em;
-    }
-    
-    #cave-page h2 {
-        font-size: 1.5em;
+        width: 100%;
+        max-width: 85px;          /* 手機上限更小 */
+        aspect-ratio: 1;
+        padding: 6px 4px;
+        font-size: 0.8em;
     }
 }
 
@@ -981,3 +976,4 @@ body {
         font-size: 1.8em;
     }
 }
+
