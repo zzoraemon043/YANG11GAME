@@ -423,50 +423,166 @@ button.ready {
 }
 
 /* ====================================
-   響應式設計
+   響應式設計 - 手機版優化
    ==================================== */
 
 @media (max-width: 768px) {
     body {
         padding: 10px;
+        padding-bottom: 80px;
     }
     
     #game-container {
-        padding: 20px;
+        padding: 15px;
+        max-width: 100%;
     }
     
     h1 {
-        font-size: 1.8em;
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+    
+    .subtitle {
+        font-size: 0.8em;
+        margin-bottom: 15px;
     }
     
     #realm-name {
+        font-size: 1.3em;
+    }
+    
+    #stage-name {
+        font-size: 1.1em;
+    }
+    
+    .realm-description {
+        font-size: 0.85em;
+        padding: 8px;
+    }
+    
+    /* 修為顯示 */
+    #cultivation {
         font-size: 1.5em;
     }
     
+    .cultivation-label {
+        font-size: 0.8em;
+    }
+    
+    /* 按鈕 */
+    button {
+        padding: 12px;
+        font-size: 0.95em;
+        margin: 8px 0;
+    }
+    
+    /* 洞府頁面 */
+    #cave-page h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    
+    .cave-resources {
+        font-size: 0.9em;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    /* ⭐ 洞府設施按鈕 - 改小 */
+    .cave-facilities {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .facility-btn {
+        font-size: 0.9em;
+        padding: 12px 8px;
+    }
+    
+    .facility-btn .icon {
+        font-size: 2em;
+        margin-bottom: 5px;
+    }
+    
+    /* 底部選單 */
+    .bottom-menu {
+        padding: 8px 0;
+    }
+    
+    .menu-icon {
+        font-size: 1.3em;
+        margin-bottom: 3px;
+    }
+    
+    .menu-text {
+        font-size: 0.75em;
+    }
+    
+    .bottom-menu-btn {
+        padding: 6px 3px;
+    }
+    
+    /* 訊息框 */
     .message-box {
         right: 10px;
         left: 10px;
         max-width: none;
+        top: 10px;
+    }
+    
+    .message {
+        padding: 10px 15px;
+        font-size: 0.9em;
     }
 }
 
-/* ⭐ 新增：自動修煉按鈕樣式 */
-button.auto-active {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-    animation: autoPulse 2s infinite;
-}
-
-@keyframes autoPulse {
-    0%, 100% { 
-        box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
-        transform: scale(1);
+/* ⭐ 超小螢幕優化 */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+        padding-bottom: 70px;
     }
-    50% { 
-        box-shadow: 0 4px 25px rgba(72, 187, 120, 0.8);
-        transform: scale(1.02);
+    
+    #game-container {
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    h1 {
+        font-size: 1.3em;
+    }
+    
+    /* 洞府設施按鈕 - 更小 */
+    .cave-facilities {
+        gap: 8px;
+    }
+    
+    .facility-btn {
+        font-size: 0.85em;
+        padding: 10px 5px;
+        border-radius: 10px;
+    }
+    
+    .facility-btn .icon {
+        font-size: 1.8em;
+    }
+    
+    /* 設施詳情 */
+    #cave-detail-area {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+    
+    .facility-detail h3 {
+        font-size: 1.2em;
+    }
+    
+    .facility-detail button {
+        min-width: 100px;
+        padding: 10px 15px;
+        font-size: 0.9em;
     }
 }
-
 /* ====================================
    底部功能選單（固定在最下方）
    ==================================== */
@@ -867,3 +983,4 @@ body {
         font-size: 1.8em;
     }
 }
+
