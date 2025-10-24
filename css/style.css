@@ -952,7 +952,10 @@ body {
 @media (max-width: 768px) {
     .cave-facilities {
         grid-template-columns: repeat(3, 1fr);  
-        gap: 10px;
+        gap: 5px;
+        justify-content: center;
+        max-width: 95%;
+        margin: 10px auto;
     }
     
     .facility-btn {
