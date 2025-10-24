@@ -1,18 +1,18 @@
-// ====================================
-// 境界資料配置
-// ====================================
+
+
+
 
 const REALMS_DATA = [
     {
         id: 0,
         name: '煉氣境',
         description: '吸納天地靈氣、鞏固體魄的起步階段。這時候你還在山腳喘。',
-        baseRequirement: 100,        // 起始修為需求
-        maxRequirement: 1000,        // 圓滿修為需求
-        cultivationGain: 10,         // 每次修煉獲得
-        sessionTime: 3,             // 修煉時間（秒）
-        breakthroughRate: 100,       // 渡劫成功率（%）
-        stages: 10                   // 小境界數量
+        baseRequirement: 100,        
+        maxRequirement: 1000,        
+        cultivationGain: 10,         
+        sessionTime: 3,             
+        breakthroughRate: 100,       
+        stages: 10                   
     },
     {
         id: 1,
@@ -33,7 +33,7 @@ const REALMS_DATA = [
         maxRequirement: 100000,
         cultivationGain: 1000,
         sessionTime: 5,
-        breakthroughRate: 90,        // 從這裡開始有失敗率
+        breakthroughRate: 90,        
         stages: 10
     },
     {
@@ -93,7 +93,7 @@ const REALMS_DATA = [
     }
 ];
 
-// 小境界名稱對應
+
 const STAGE_NAMES = {
     1: '一期',
     2: '二期', 
@@ -107,28 +107,28 @@ const STAGE_NAMES = {
     10: '圓滿'
 };
 
-// 階段分類（用於顯示初中後期）
+
 const STAGE_PHASES = {
-    early: [1, 2, 3],      // 初期
-    middle: [4, 5, 6],     // 中期
-    late: [7, 8, 9],       // 後期
-    perfect: [10]          // 圓滿
+    early: [1, 2, 3],      
+    middle: [4, 5, 6],     
+    late: [7, 8, 9],       
+    perfect: [10]          
 };
 
-// 工具函數：獲取境界資料
+
 function getRealmData(realmIndex) {
     return REALMS_DATA[realmIndex] || null;
 }
 
-// 工具函數：計算該階段需要的修為
+
 function calculateStageRequirement(realmIndex, stage) {
     const realm = REALMS_DATA[realmIndex];
     if (!realm) return 0;
     
     const totalRange = realm.maxRequirement - realm.baseRequirement;
     
-    // 遞增公式：後期越來越難
-    // 1期最簡單，9期最難
+    
+    
     const weights = [1, 1.2, 1.5, 2, 2.5, 3.5, 4.5, 6, 8, 10];
     const totalWeight = weights.reduce((a, b) => a + b, 0);
     
@@ -140,12 +140,12 @@ function calculateStageRequirement(realmIndex, stage) {
     return Math.floor(accumulated);
 }
 
-// 工具函數：獲取階段名稱
+
 function getStageName(stage) {
     return STAGE_NAMES[stage] || '未知';
 }
 
-// 工具函數：獲取階段類型描述
+
 function getStagePhase(stage) {
     if (STAGE_PHASES.early.includes(stage)) return '初期';
     if (STAGE_PHASES.middle.includes(stage)) return '中期';
