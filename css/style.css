@@ -1,0 +1,869 @@
+/* ====================================
+   全域樣式
+   ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft JhengHei", "微軟正黑體", Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* ====================================
+   容器
+   ==================================== */
+
+#game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(26, 26, 46, 0.8);
+    border: 2px solid #4a5568;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ====================================
+   標題
+   ==================================== */
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+}
+
+.subtitle {
+    text-align: center;
+    color: #a0aec0;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+/* ====================================
+   境界顯示區
+   ==================================== */
+
+.realm-section {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border: 2px solid #4a5568;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.realm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#realm-name {
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 0 10px currentColor;
+}
+
+#stage-name {
+    font-size: 1.5em;
+    color: #cbd5e0;
+}
+
+.realm-description {
+    color: #a0aec0;
+    font-style: italic;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border-left: 3px solid #667eea;
+}
+
+/* 境界顏色 */
+.realm-qi { color: #ffffff; }           /* 煉氣 - 白色 */
+.realm-foundation { color: #48bb78; }   /* 築基 - 綠色 */
+.realm-golden { color: #ecc94b; }       /* 金丹 - 金色 */
+.realm-nascent { color: #4299e1; }      /* 元嬰 - 藍色 */
+.realm-spirit { color: #9f7aea; }       /* 化神 - 紫色 */
+.realm-unity { color: #f56565; }        /* 合道 - 紅色 */
+.realm-mahayana { color: #ed8936; }     /* 大乘 - 橙色 */
+.realm-tribulation { color: #2d3748; text-shadow: 0 0 10px #fff; } /* 渡劫 - 黑色發光 */
+
+/* ====================================
+   修為顯示區
+   ==================================== */
+
+.cultivation-section {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border: 2px solid #4a5568;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.cultivation-display {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.cultivation-label {
+    color: #a0aec0;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+#cultivation {
+    font-size: 2em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.cultivation-low { color: #48bb78; }
+.cultivation-mid { color: #ecc94b; }
+.cultivation-high { color: #f56565; }
+
+.progress-container {
+    margin: 15px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #4a5568;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #cbd5e0;
+}
+
+/* ====================================
+   操作區
+   ==================================== */
+
+.action-section {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border: 2px solid #4a5568;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:disabled {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+button.cultivating {
+    background: linear-gradient(135deg, #f56565 0%, #c53030 100%);
+    animation: pulse 1.5s infinite;
+}
+
+button.ready {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    animation: glow 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(72, 187, 120, 0.8); }
+}
+
+/* ====================================
+   修煉狀態
+   ==================================== */
+
+.cultivation-status {
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid #667eea;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.cultivation-timer {
+    font-size: 1.2em;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+/* ====================================
+   渡劫資訊
+   ==================================== */
+
+.breakthrough-info {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(245, 101, 101, 0.1);
+    border: 1px solid #f56565;
+    border-radius: 5px;
+    text-align: center;
+    color: #feb2b2;
+    font-size: 0.9em;
+}
+
+/* ====================================
+   統計資訊
+   ==================================== */
+
+.stats-section {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border: 2px solid #4a5568;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.stats-section h2 {
+    color: #cbd5e0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #4a5568;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: #a0aec0;
+}
+
+.stat-value {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* ====================================
+   訊息顯示
+   ==================================== */
+
+.message-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 350px;
+}
+
+.message {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    border-left: 4px solid;
+}
+
+.message-info {
+    background: #2d3748;
+    border-left-color: #667eea;
+    color: #e0e0e0;
+}
+
+.message-success {
+    background: #22543d;
+    border-left-color: #48bb78;
+    color: #c6f6d5;
+}
+
+.message-error {
+    background: #742a2a;
+    border-left-color: #f56565;
+    color: #fed7d7;
+}
+
+.message-warning {
+    background: #7c2d12;
+    border-left-color: #ed8936;
+    color: #feebc8;
+}
+
+.message.fade-out {
+    animation: slideOut 0.5s ease;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* ====================================
+   特效
+   ==================================== */
+
+.level-up {
+    animation: levelUpFlash 1s ease;
+}
+
+@keyframes levelUpFlash {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1.1); }
+    75% { transform: scale(1.15); }
+}
+
+.breakthrough-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.8) 0%, transparent 70%);
+    animation: flashEffect 1s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes flashEffect {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ====================================
+   響應式設計
+   ==================================== */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    #game-container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    #realm-name {
+        font-size: 1.5em;
+    }
+    
+    .message-box {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+/* ⭐ 新增：自動修煉按鈕樣式 */
+button.auto-active {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    animation: autoPulse 2s infinite;
+}
+
+@keyframes autoPulse {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 4px 25px rgba(72, 187, 120, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+/* ====================================
+   底部功能選單（固定在最下方）
+   ==================================== */
+
+.bottom-menu {
+    position: fixed;           /* ⭐ 固定定位 */
+    bottom: 0;                 /* ⭐ 固定在底部 */
+    left: 0;                   /* ⭐ 從左邊開始 */
+    right: 0;                  /* ⭐ 到右邊結束 */
+    z-index: 1000;             /* ⭐ 在最上層 */
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    
+    /* 背景樣式 */
+    background: rgba(26, 26, 46, 0.95);  /* 半透明背景 */
+    backdrop-filter: blur(10px);          /* 毛玻璃效果 */
+    border-top: 2px solid #4a5568;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);  /* 上方陰影 */
+}
+
+.bottom-menu-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    margin: 0 5px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #a0aec0;
+}
+
+.bottom-menu-btn:hover:not(:disabled) {
+    background: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+.bottom-menu-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.bottom-menu-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.bottom-menu-btn:disabled:hover {
+    background: transparent;
+    transform: none;
+}
+
+.menu-icon {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.menu-text {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* ⭐ 為 body 增加底部內距，避免內容被選單遮住 */
+body {
+    padding-bottom: 100px;  /* 給底部選單留出空間 */
+}
+
+/* ⭐ 為遊戲容器增加底部內距 */
+#game-container {
+    padding-bottom: 20px;
+    margin-bottom: 100px;  /* 確保內容不會被選單遮住 */
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .bottom-menu {
+        padding: 10px 0;
+    }
+    
+    .menu-icon {
+        font-size: 1.5em;
+    }
+    
+    .menu-text {
+        font-size: 0.8em;
+    }
+    
+    .bottom-menu-btn {
+        padding: 8px 3px;
+        margin: 0 2px;
+    }
+    
+    body {
+        padding-bottom: 80px;  /* 手機版調整 */
+    }
+}
+
+/* ====================================
+   洞府頁面樣式
+   ==================================== */
+
+/* 洞府總覽 */
+.cave-overview {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.cave-resources {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.cave-resources span {
+    color: #cbd5e0;
+}
+
+/* 洞府頁面標題 */
+#cave-page h2 {
+    color: #cbd5e0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+/* ⭐ 設施按鈕容器 - 網格佈局 */
+.cave-facilities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 一排3個 */
+    gap: 15px;  /* 按鈕間距 */
+    margin: 20px 0;
+}
+
+/* ⭐ 設施按鈕 - 正方形 */
+.facility-btn {
+    width: 100%;
+    aspect-ratio: 1;  /* 正方形（寬高比 1:1） */
+    padding: 20px 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.facility-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.facility-btn:active {
+    transform: translateY(-2px);
+}
+
+/* 設施按鈕內的圖示 */
+.facility-btn .icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* ⭐ 設施詳情區 */
+#cave-detail-area {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border: 2px solid #4a5568;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 200px;
+    margin-top: 20px;
+}
+
+.facility-detail h3 {
+    color: #cbd5e0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.facility-info {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.facility-info p {
+    margin: 8px 0;
+    color: #cbd5e0;
+}
+
+/* 設施詳情內的按鈕 */
+.facility-detail button {
+    width: auto;
+    min-width: 150px;
+    padding: 12px 20px;
+    margin: 10px 5px;
+    font-size: 1em;
+}
+
+/* ⭐ 功法列表 */
+.technique-list,
+.farm-list,
+.alchemy-queue,
+.recipe-list {
+    margin-top: 20px;
+}
+
+.technique-list h4,
+.farm-list h4,
+.alchemy-queue h4,
+.recipe-list h4 {
+    color: #cbd5e0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* 功法項目 */
+.technique-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border-left: 3px solid #667eea;
+}
+
+.technique-item.active {
+    background: rgba(102, 126, 234, 0.2);
+    border-left-color: #48bb78;
+}
+
+.technique-item button {
+    width: auto;
+    min-width: 80px;
+    padding: 8px 15px;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.technique-item .badge {
+    padding: 4px 12px;
+    background: #48bb78;
+    border-radius: 12px;
+    font-size: 0.85em;
+    color: white;
+}
+
+/* 靈田項目 */
+.farm-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.farm-item.locked {
+    border-left-color: #4a5568;
+    opacity: 0.6;
+}
+
+.farm-item.empty {
+    border-left-color: #cbd5e0;
+}
+
+.farm-item.growing {
+    border-left-color: #ecc94b;
+}
+
+.farm-item.ready {
+    border-left-color: #48bb78;
+    animation: glow 1.5s infinite;
+}
+
+.farm-item button {
+    width: auto;
+    min-width: 80px;
+    padding: 8px 15px;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+
+/* 迷你進度條 */
+.mini-progress {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.mini-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+/* 煉丹和丹方項目 */
+.alchemy-item,
+.recipe-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.alchemy-item.complete {
+    border-left-color: #48bb78;
+}
+
+.recipe-item.unavailable {
+    opacity: 0.6;
+    border-left-color: #4a5568;
+}
+
+.recipe-item.available {
+    border-left-color: #48bb78;
+}
+
+.recipe-name {
+    font-weight: bold;
+    color: #cbd5e0;
+    margin-bottom: 8px;
+}
+
+.recipe-info {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9em;
+    color: #a0aec0;
+    margin: 8px 0;
+}
+
+.unavailable-reason {
+    color: #f56565;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* 功法稀有度顏色 */
+.technique-common { color: #cbd5e0; }      /* 普通 - 灰白 */
+.technique-rare { color: #48bb78; }         /* 稀有 - 綠色 */
+.technique-epic { color: #9f7aea; }         /* 史詩 - 紫色 */
+.technique-legendary { color: #ecc94b; }    /* 傳說 - 金色 */
+.technique-mythic { color: #f56565; }       /* 神話 - 紅色 */
+
+/* 響應式設計 - 洞府 */
+@media (max-width: 768px) {
+    .cave-facilities {
+        grid-template-columns: repeat(2, 1fr);  /* 手機版改為一排2個 */
+        gap: 10px;
+    }
+    
+    .facility-btn {
+        font-size: 1em;
+        padding: 15px 8px;
+    }
+    
+    .facility-btn .icon {
+        font-size: 2em;
+    }
+    
+    #cave-page h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cave-facilities {
+        grid-template-columns: repeat(2, 1fr);  /* 小螢幕保持2個 */
+    }
+    
+    .facility-btn .icon {
+        font-size: 1.8em;
+    }
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修仙模擬器 - 文字修仙遊戲</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 遊戲容器 -->
+    <div id="game-container">
+        <!-- 標題 -->
+        <h1>⚡ 修仙模擬器 ⚡</h1>
+        <div class="subtitle">踏上修仙之路，證道成仙</div>
+        
+        <!-- ⭐ 修煉頁面（預設顯示） -->
+        <div id="cultivation-page" class="page-section">
+            <!-- 境界顯示區 -->
+            <div class="realm-section">
+                <div class="realm-header">
+                    <span id="realm-name" class="realm-qi">煉氣境</span>
+                    <span id="stage-name">一期</span>
+                </div>
+                <div id="realm-description" class="realm-description">
+                    吸納天地靈氣、鞏固體魄的起步階段。這時候你還在山腳喘。
+                </div>
+            </div>
+            
+            <!-- 修為顯示區 -->
+            <div class="cultivation-section">
+                <div class="cultivation-display">
+                    <div class="cultivation-label">當前修為</div>
+                    <div id="cultivation">0</div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="cultivation-bar" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="cultivation-progress">0 / 50</span>
+                        <span id="cultivation-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 操作區 -->
+            <div class="action-section">
+                <button id="cultivate-btn">🧘 開始修煉</button>
+                <button id="auto-cultivate-btn">🔄 自動修煉</button>
+                
+                <!-- 修煉狀態 -->
+                <div id="cultivation-status" class="cultivation-status" style="display: none;">
+                    <div class="cultivation-timer" id="cultivation-timer">剩餘時間：10 秒</div>
+                    <div class="progress-bar">
+                        <div id="cultivation-progress-bar" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <!-- 渡劫按鈕 -->
+                <button id="breakthrough-btn">⚡ 渡劫突破</button>
+                <div id="breakthrough-info" class="breakthrough-info" style="display: none;"></div>
+            </div>
+            
+            <!-- 統計資訊 -->
+            <div class="stats-section">
+                <h2>📊 修煉統計</h2>
+                <div class="stat-item">
+                    <span class="stat-label">修煉次數：</span>
+                    <span class="stat-value"><span id="total-sessions">0</span> 次</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">遊戲時間：</span>
+                    <span class="stat-value" id="play-time">0秒</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">渡劫記錄：</span>
+                    <span class="stat-value" id="breakthrough-attempts">0 次</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ⭐ 洞府頁面（預設隱藏） -->
+        <div id="cave-page" class="page-section" style="display: none;">
+            <h2>🏠 我的洞府</h2>
+            <div class="cave-overview">
+                <div class="cave-resources">
+                    <span>💎 靈石：<span id="cave-spirit-stone">0</span></span>
+                    <span>📦 倉庫：<span id="cave-storage">0/100</span></span>
+                </div>
+            </div>
+            
+<div class="cave-facilities">
+    <button class="facility-btn" id="cave-library">
+        <div class="icon">📚</div>
+        <div>藏經閣</div>
+    </button>
+    <button class="facility-btn" id="cave-mine">
+        <div class="icon">⛏️</div>
+        <div>靈石礦脈</div>
+    </button>
+    <button class="facility-btn" id="cave-array">
+        <div class="icon">✨</div>
+        <div>聚靈陣</div>
+    </button>
+    <button class="facility-btn" id="cave-farm">
+        <div class="icon">🌱</div>
+        <div>靈田</div>
+    </button>
+    <button class="facility-btn" id="cave-alchemy">
+        <div class="icon">💊</div>
+        <div>煉丹房</div>
+    </button>
+</div>
+            <div id="cave-detail-area">
+                <div style="text-align: center; padding: 40px; color: #a0aec0;">
+                    <h3>歡迎來到洞府</h3>
+                    <p>請選擇一個設施開始管理</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ⭐ 功能選單（放在最下面，一排五個按鈕） -->
+        <div class="bottom-menu">
+            <button id="menu-cultivation" class="bottom-menu-btn active">
+                <div class="menu-icon">🧘</div>
+                <div class="menu-text">修煉</div>
+            </button>
+            <button id="menu-cave" class="bottom-menu-btn">
+                <div class="menu-icon">🏠</div>
+                <div class="menu-text">洞府</div>
+            </button>
+            <button id="menu-explore" class="bottom-menu-btn" disabled>
+                <div class="menu-icon">🗺️</div>
+                <div class="menu-text">探索</div>
+            </button>
+            <button id="menu-sect" class="bottom-menu-btn" disabled>
+                <div class="menu-icon">📜</div>
+                <div class="menu-text">宗門</div>
+            </button>
+            <button id="menu-battle" class="bottom-menu-btn" disabled>
+                <div class="menu-icon">⚔️</div>
+                <div class="menu-text">鬥法</div>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 訊息顯示區 -->
+    <div id="message-box" class="message-box"></div>
+    
+    <!-- JavaScript - 按照依賴順序載入 -->
+    <!-- 數據 -->
+    <script src="js/data/realms.js"></script>
+    <script src="js/data/techniques.js"></script>      
+    <script src="js/data/herbs.js"></script>           
+    <script src="js/data/pills.js"></script>           
+    
+    <!-- 工具 -->
+    <script src="js/utils/Formatter.js"></script>
+    
+    <!-- 實體 -->
+    <script src="js/entities/Player.js"></script>
+    
+    <!-- 系統 -->
+    <script src="js/systems/CultivationSystem.js"></script>
+    <script src="js/systems/BreakthroughSystem.js"></script>
+    <script src="js/systems/ResourceManager.js"></script>  
+    <script src="js/systems/TechniqueSystem.js"></script>  
+    <script src="js/systems/FarmSystem.js"></script>       
+    <script src="js/systems/AlchemySystem.js"></script>    
+    <script src="js/systems/CaveSystem.js"></script>       
+    
+    <!-- UI -->
+    <script src="js/ui/UIManager.js"></script>
+    <script src="js/ui/CaveUIManager.js"></script>
+    
+    <!-- 核心 -->
+    <script src="js/core/Game.js"></script>
+    
+    <!-- 啟動 -->
+    <script src="main.js"></script>
+</body>
+</html>
