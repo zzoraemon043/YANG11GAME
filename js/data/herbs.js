@@ -1,22 +1,22 @@
-// ====================================
-// 種子和靈草資料配置
-// ====================================
 
-// 種子稀有度
+
+
+
+
 const SEED_RARITY = {
-    HUANG: 'huang',  // 黃階
-    XUAN: 'xuan',    // 玄階
-    DI: 'di',        // 地階
-    TIAN: 'tian'     // 天階
+    HUANG: 'huang',  
+    XUAN: 'xuan',    
+    DI: 'di',        
+    TIAN: 'tian'     
 };
 
-// 種子資料
+
 const SEEDS_DATA = {
     huang: {
         id: 'huang',
         name: '黃階種子',
         rarity: SEED_RARITY.HUANG,
-        growTime: 30 * 60,        // 30分鐘（秒）
+        growTime: 30 * 60,        
         minHerbs: 1,
         maxHerbs: 5,
         herbPool: [
@@ -30,7 +30,7 @@ const SEEDS_DATA = {
         id: 'xuan',
         name: '玄階種子',
         rarity: SEED_RARITY.XUAN,
-        growTime: 60 * 60,        // 1小時
+        growTime: 60 * 60,        
         minHerbs: 2,
         maxHerbs: 5,
         herbPool: [
@@ -44,7 +44,7 @@ const SEEDS_DATA = {
         id: 'di',
         name: '地階種子',
         rarity: SEED_RARITY.DI,
-        growTime: 120 * 60,       // 2小時
+        growTime: 120 * 60,       
         minHerbs: 3,
         maxHerbs: 5,
         herbPool: [
@@ -58,7 +58,7 @@ const SEEDS_DATA = {
         id: 'tian',
         name: '天階種子',
         rarity: SEED_RARITY.TIAN,
-        growTime: 180 * 60,       // 3小時
+        growTime: 180 * 60,       
         minHerbs: 4,
         maxHerbs: 5,
         herbPool: [
@@ -69,11 +69,11 @@ const SEEDS_DATA = {
     }
 };
 
-// 靈草資料
+
 const HERBS_DATA = {
-    // ========================================
-    // 煉氣境材料（黃階種子產出）
-    // ========================================
+    
+    
+    
     "青靈芝": {
         id: "qing_ling_zhi",
         name: "青靈芝",
@@ -124,9 +124,9 @@ const HERBS_DATA = {
         description: "吸收月華的靈芝"
     },
     
-    // ========================================
-    // 築基境材料（玄階種子產出）
-    // ========================================
+    
+    
+    
     "紫雲花": {
         id: "zi_yun_hua",
         name: "紫雲花",
@@ -177,9 +177,9 @@ const HERBS_DATA = {
         description: "生長在玄冰中的蓮花"
     },
     
-    // ========================================
-    // 金丹境材料（地階種子產出）
-    // ========================================
+    
+    
+    
     "九葉蓮": {
         id: "jiu_ye_lian",
         name: "九葉蓮",
@@ -230,9 +230,9 @@ const HERBS_DATA = {
         description: "靈犀獸的角"
     },
     
-    // ========================================
-    // 元嬰境及以上材料（天階種子產出）
-    // ========================================
+    
+    
+    
     "天靈果": {
         id: "tian_ling_guo",
         name: "天靈果",
@@ -284,29 +284,29 @@ const HERBS_DATA = {
     }
 };
 
-// ====================================
-// 工具函數
-// ====================================
 
-// 獲取種子資料
+
+
+
+
 function getSeedData(seedType) {
     return SEEDS_DATA[seedType] || null;
 }
 
-// 獲取靈草資料
+
 function getHerbData(herbName) {
     return HERBS_DATA[herbName] || null;
 }
 
-// 隨機生成種植產出
+
 function generateHerbHarvest(seedType) {
     const seed = getSeedData(seedType);
     if (!seed) return [];
     
-    // 隨機數量
+    
     const count = Math.floor(Math.random() * (seed.maxHerbs - seed.minHerbs + 1)) + seed.minHerbs;
     
-    // 隨機選擇靈草
+    
     const harvest = [];
     for (let i = 0; i < count; i++) {
         const randomIndex = Math.floor(Math.random() * seed.herbPool.length);
@@ -317,14 +317,14 @@ function generateHerbHarvest(seedType) {
     return harvest;
 }
 
-// 獲取靈草的元素顏色類名
+
 function getHerbElementClass(element) {
     const elementColors = {
-        'metal': 'element-metal',   // 金色
-        'wood': 'element-wood',     // 綠色
-        'water': 'element-water',   // 藍色
-        'fire': 'element-fire',     // 紅色
-        'earth': 'element-earth'    // 黃色
+        'metal': 'element-metal',   
+        'wood': 'element-wood',     
+        'water': 'element-water',   
+        'fire': 'element-fire',     
+        'earth': 'element-earth'    
     };
     
     return elementColors[element] || 'element-default';
