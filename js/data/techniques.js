@@ -1,38 +1,38 @@
-// ====================================
-// 功法資料配置
-// ====================================
 
-// 功法稀有度等級
+
+
+
+
 const TECHNIQUE_RARITY = {
-    HUANG: 'huang',    // 黃階
-    XUAN: 'xuan',      // 玄階
-    DI: 'di',          // 地階
-    TIAN: 'tian',      // 天階
-    XIAN: 'xian'       // 仙階
+    HUANG: 'huang',    
+    XUAN: 'xuan',      
+    DI: 'di',          
+    TIAN: 'tian',      
+    XIAN: 'xian'       
 };
 
-// 功法資料庫
+
 const TECHNIQUES_DATA = {
-    // ========================================
-    // 黃階功法
-    // ========================================
+    
+    
+    
     "基礎吐納術": {
         id: "basic_breathing",
         name: "基礎吐納術",
         rarity: TECHNIQUE_RARITY.HUANG,
-        realmRequirement: 0,  // 煉氣境
+        realmRequirement: 0,  
         
-        // 主效果（只有運行時生效）
+        
         mainEffect: {
             type: "cultivation_speed",
-            value: 10  // 修煉速度 +10%
+            value: 10  
         },
         
-        // 被動效果（永遠生效）
+        
         passiveEffect: {
             type: "element",
-            element: "metal",  // 金屬性
-            value: 5           // +5 點
+            element: "metal",  
+            value: 5           
         },
         
         description: "最基礎的吐納功法，適合初學者修煉。"
@@ -78,14 +78,14 @@ const TECHNIQUES_DATA = {
         description: "水屬性功法，綿綿不絕。"
     },
     
-    // ========================================
-    // 玄階功法
-    // ========================================
+    
+    
+    
     "紫霞功": {
         id: "purple_cloud",
         name: "紫霞功",
         rarity: TECHNIQUE_RARITY.XUAN,
-        realmRequirement: 1,  // 築基境
+        realmRequirement: 1,  
         
         mainEffect: {
             type: "cultivation_speed",
@@ -141,14 +141,14 @@ const TECHNIQUES_DATA = {
         description: "土屬性功法，厚德載物。"
     },
     
-    // ========================================
-    // 地階功法
-    // ========================================
+    
+    
+    
     "大力金剛功": {
         id: "vajra_power",
         name: "大力金剛功",
         rarity: TECHNIQUE_RARITY.DI,
-        realmRequirement: 3,  // 元嬰境
+        realmRequirement: 3,  
         
         mainEffect: {
             type: "cultivation_speed",
@@ -158,7 +158,7 @@ const TECHNIQUES_DATA = {
         passiveEffect: {
             type: "special",
             effect: "auto_alchemy",
-            value: 2  // 2% 機率自動煉丹
+            value: 2  
         },
         
         description: "少林絕學，力大無窮。"
@@ -198,20 +198,20 @@ const TECHNIQUES_DATA = {
         passiveEffect: {
             type: "special",
             effect: "spirit_stone_gain",
-            value: 10  // 靈石獲得 +10%
+            value: 10  
         },
         
         description: "水屬性功法，波濤洶湧。"
     },
     
-    // ========================================
-    // 天階功法
-    // ========================================
+    
+    
+    
     "北冥神功": {
         id: "beiming_divine_skill",
         name: "北冥神功",
         rarity: TECHNIQUE_RARITY.TIAN,
-        realmRequirement: 5,  // 合道境
+        realmRequirement: 5,  
         
         mainEffect: {
             type: "cultivation_speed",
@@ -221,7 +221,7 @@ const TECHNIQUES_DATA = {
         passiveEffect: {
             type: "special",
             effect: "auto_harvest",
-            value: 5  // 5% 機率自動收穫靈田
+            value: 5  
         },
         
         description: "逍遙派絕學，吸人內力為己用。"
@@ -241,20 +241,20 @@ const TECHNIQUES_DATA = {
         passiveEffect: {
             type: "special",
             effect: "alchemy_success",
-            value: 10  // 煉丹成功率 +10%
+            value: 10  
         },
         
         description: "青雲門鎮派功法，玄妙無比。"
     },
     
-    // ========================================
-    // 仙階功法
-    // ========================================
+    
+    
+    
     "混元金章": {
         id: "hunyuan_golden_chapter",
         name: "混元金章",
         rarity: TECHNIQUE_RARITY.XIAN,
-        realmRequirement: 7,  // 渡劫境
+        realmRequirement: 7,  
         
         mainEffect: {
             type: "cultivation_speed",
@@ -264,7 +264,7 @@ const TECHNIQUES_DATA = {
         passiveEffect: {
             type: "special",
             effect: "auto_collect",
-            value: 10  // 10% 機率自動收取靈石
+            value: 10  
         },
         
         description: "傳說中的仙階功法，威力無窮。"
@@ -291,16 +291,16 @@ const TECHNIQUES_DATA = {
     }
 };
 
-// ====================================
-// 工具函數
-// ====================================
 
-// 獲取功法資料
+
+
+
+
 function getTechniqueData(techniqueName) {
     return TECHNIQUES_DATA[techniqueName] || null;
 }
 
-// 獲取功法列表（根據境界篩選）
+
 function getTechniquesByRealm(realmIndex) {
     const techniques = [];
     
@@ -314,20 +314,20 @@ function getTechniquesByRealm(realmIndex) {
     return techniques;
 }
 
-// 獲取稀有度顏色類名
+
 function getTechniqueRarityClass(rarity) {
     const rarityColors = {
-        'huang': 'technique-huang',  // 黃色
-        'xuan': 'technique-xuan',    // 青色
-        'di': 'technique-di',        // 紫色
-        'tian': 'technique-tian',    // 金色
-        'xian': 'technique-xian'     // 紅色
+        'huang': 'technique-huang',  
+        'xuan': 'technique-xuan',    
+        'di': 'technique-di',        
+        'tian': 'technique-tian',    
+        'xian': 'technique-xian'     
     };
     
     return rarityColors[rarity] || 'technique-default';
 }
 
-// 獲取稀有度中文名稱
+
 function getTechniqueRarityName(rarity) {
     const rarityNames = {
         'huang': '黃階',
@@ -340,7 +340,7 @@ function getTechniqueRarityName(rarity) {
     return rarityNames[rarity] || '未知';
 }
 
-// 獲取元素中文名稱
+
 function getElementName(element) {
     const elementNames = {
         'metal': '金',
@@ -353,7 +353,7 @@ function getElementName(element) {
     return elementNames[element] || '無';
 }
 
-// 獲取特殊效果中文描述
+
 function getSpecialEffectDesc(effect, value) {
     const effectDescs = {
         'auto_alchemy': `自動煉丹 ${value}%`,
