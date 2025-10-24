@@ -725,7 +725,7 @@ body {
 
 
 .facility-btn {
-    width: 70%;
+    width: 100%;
     aspect-ratio: 1;  
     padding: 12px 6px;  
     font-size: 1em;
@@ -956,8 +956,8 @@ body {
     }
     
     .facility-btn {
-        font-size: 1em;
-        padding: 15px 8px;
+        font-size: 0.85em;
+        padding: 8px 4px;
     }
     
     .facility-btn .icon {
